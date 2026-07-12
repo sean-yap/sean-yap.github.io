@@ -1,0 +1,43 @@
+# build output
+dist/
+.output/
+
+# dependencies
+node_modules/
+
+# generated types
+.astro/
+
+# environment variables
+.env
+.env.production
+
+# macOS / Windows
+.DS_Store
+Thumbs.db
+
+# local editor / tooling
+.claude/
+.vscode/
+
+# backup of the old Jekyll site content (never publish)
+_old-site-backup/
+
+# local planning docs (the repo is public; these stay on this machine/OneDrive)
+PLAN.md
+HANDOFF.md
+TODO.md
+CASE-STUDY-GUIDE.md
+
+# unreviewed work-project drafts: local-only until Sean approves them
+# (remove the line here when a draft flips to draft: false)
+src/content/projects/data-misuse-onboarding.md
+src/content/projects/access-module-v2.md
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local reference notes
+References/

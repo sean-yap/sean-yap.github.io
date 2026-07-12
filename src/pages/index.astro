@@ -1,0 +1,59 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import { PROJECTS } from '../data/projects';
+
+// Draft cards show in local dev only, never on the deployed site.
+const featured = PROJECTS.filter(
+  (p) => p.featured && (!p.draft || import.meta.env.DEV)
+);
+
+const posts = (await getCollection('blog'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 4);
+---
+
+<BaseLayout>
+  <Hero />
+
+  <section id="work" class="scroll-mt-6 py-8">
+    <h2 class="section-label">Selected work</h2>
+    <div class="mt-4 grid gap-3">
+      {featured.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+
+  {
+    posts.length > 0 && (
+      <section class="py-8">
+        <div class="flex items-baseline justify-between">
+          <h2 class="section-label">Writing</h2>
+          <a href="/blog" class="text-sm tlink">
+            All posts →
+          </a>
+        </div>
+        <ul class="mt-4 space-y-2.5">
+          {posts.map((post) => (
+            <li>
+              <a
+                href={`/blog/${post.id}`}
+                class="group flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
+              >
+                <span class="group-hover:text-[var(--color-accent)]">
+                  {post.data.title}
+                </span>
+                <span class="shrink-0 text-sm text-zinc-400 dark:text-zinc-500">
+                  <FormattedDate date={post.data.pubDate} />
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+</BaseLayout>

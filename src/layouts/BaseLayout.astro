@@ -1,0 +1,70 @@
+---
+import '../styles/global.css';
+import { SITE } from '../config';
+import Sidebar from '../components/Sidebar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const pageTitle = title ? `${title} | ${SITE.name}` : SITE.title;
+const pageDescription = description ?? SITE.description;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={SITE.url} />
+
+    <!-- Fonts: Inter (body) + Space Grotesk (headings) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--
+      No-flash script: applies theme (default dark) BEFORE the page
+      paints, so there's no flicker on load.
+    -->
+    <script is:inline>
+      const theme = localStorage.getItem('theme') || 'dark';
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    </script>
+  </head>
+  <body class="font-sans">
+    <div class="mx-auto flex max-w-5xl flex-col px-5 md:flex-row md:gap-12 lg:gap-16">
+      <Sidebar />
+      <div class="flex min-h-screen w-full min-w-0 flex-col">
+        <main class="w-full max-w-2xl flex-1 py-10 md:py-16">
+          <slot />
+        </main>
+        <Footer />
+      </div>
+    </div>
+    <!-- Single delegated handler for all theme-toggle buttons. -->
+    <script is:inline>
+      document.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-theme-toggle]');
+        if (!btn) return;
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      });
+    </script>
+  </body>
+</html>

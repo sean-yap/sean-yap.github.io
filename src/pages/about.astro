@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SOCIALS } from '../config';
+---
+
+<BaseLayout title="About" description="My background as a business analyst and why I am moving into product and technical work.">
+  <article class="prose prose-zinc max-w-none dark:prose-invert prose-a:text-[var(--color-accent)] prose-headings:[font-family:var(--font-heading)]">
+    <h1>About me</h1>
+
+    <p>
+      I'm Sean, a business analyst moving into product and technical work.
+      For the past few years I've turned ambiguous business problems into
+      clear requirements, decisions and outcomes. Now I build the things I
+      used to spec.
+    </p>
+
+    <h2>Why the pivot</h2>
+    <p>
+      I chose logistics as my degree out of plain curiosity. Look around the
+      room you are in: almost everything in it came from somewhere else in
+      the world, carried by an invisible system of ships, ports, trucks and
+      schedules. I wanted to know how that system worked, so I studied it.
+      Not for the career, for the curiosity.
+    </p>
+    <p>
+      When I entered the workforce, an opportunity came up to move into tech
+      through a bootcamp, and the same curiosity lit up again. This time it
+      did not stop at understanding the system. I started building, and
+      building is addictive in a way analysis never was: a script, a
+      calculator, a tool keeps working after you walk away from it. Logistics
+      moves things that get delivered and forgotten. Software, built well,
+      lasts.
+    </p>
+    <p>
+      That is the pivot. I went from studying the systems that move things to
+      building systems that last.
+    </p>
+
+    <h2>What I bring from being an analyst</h2>
+    <ul>
+      <li>
+        I start from the problem, not the solution. Every project on this
+        site opens with the problem because that is how I actually work.
+      </li>
+      <li>
+        I verify before I build. The BTO calculator caught two material
+        errors in its own spec because I treat requirements as claims to
+        check, not instructions to follow.
+      </li>
+      <li>
+        I translate between business and engineering, in both directions,
+        without losing what either side actually means.
+      </li>
+    </ul>
+
+    <h2>What I'm learning now</h2>
+    <p>
+      React and front-end product work, AWS and infrastructure as code
+      through projects at work, and the craft of writing case studies that
+      show decisions rather than features.
+    </p>
+
+    <h2>Get in touch</h2>
+    <p>
+      The fastest way to reach me is
+      {SOCIALS.email ? (
+        <a href={`mailto:${SOCIALS.email}`}>email</a>
+      ) : (
+        <span>email (TODO: add address in src/config.ts)</span>
+      )}.
+      {SOCIALS.github && (
+        <>
+          {' '}You can also find my code on{' '}
+          <a href={SOCIALS.github} target="_blank" rel="noopener noreferrer">GitHub</a>.
+        </>
+      )}
+    </p>
+  </article>
+</BaseLayout>

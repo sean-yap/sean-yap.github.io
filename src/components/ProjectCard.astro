@@ -1,0 +1,63 @@
+---
+import type { Project } from '../data/projects';
+
+interface Props {
+  project: Project;
+}
+const { project } = Astro.props;
+const Tag = project.href ? 'a' : 'div';
+const external = project.href.startsWith('http');
+---
+
+<Tag
+  href={project.href || undefined}
+  target={external ? '_blank' : undefined}
+  rel={external ? 'noopener noreferrer' : undefined}
+  class:list={[
+    'group block rounded-xl border border-zinc-200 p-5 transition-colors dark:border-zinc-800',
+    project.href && 'hover:border-zinc-300 dark:hover:border-zinc-700',
+  ]}
+>
+  <div class="flex items-baseline justify-between gap-3">
+    <h3 class="font-display text-lg font-semibold group-hover:text-[var(--color-accent)]">
+      {project.title}
+      {project.draft && (
+        <span class="ml-2 rounded-md border border-dashed border-[var(--color-accent)] px-1.5 py-0.5 align-middle text-xs font-medium text-[var(--color-accent)]">
+          Draft
+        </span>
+      )}
+    </h3>
+    {
+      project.href && (
+        <span class="shrink-0 text-zinc-400 transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--color-accent)]">
+          →
+        </span>
+      )
+    }
+  </div>
+
+  <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">{project.problem}</p>
+
+  {
+    project.impact && (
+      <p class="accent-soft mt-3 inline-flex items-center gap-2 rounded-md px-2.5 py-1 text-sm font-medium text-[var(--color-accent)]">
+        <span class="text-xs font-semibold uppercase tracking-wide opacity-70">
+          Impact
+        </span>
+        <span>{project.impact}</span>
+      </p>
+    )
+  }
+
+  {
+    project.tags.length > 0 && (
+      <div class="mt-4 flex flex-wrap gap-2">
+        {project.tags.map((tag) => (
+          <span class="rounded-md bg-zinc-100 px-2 py-0.5 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
+            {tag}
+          </span>
+        ))}
+      </div>
+    )
+  }
+</Tag>
