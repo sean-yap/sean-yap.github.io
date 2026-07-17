@@ -21,6 +21,11 @@ const external = project.href.startsWith('http');
   <div class="flex items-baseline justify-between gap-3">
     <h3 class="font-display text-lg font-semibold group-hover:text-[var(--color-accent)]">
       {project.title}
+      {project.hasLiveDemo && (
+        <span class="accent-soft ml-2 rounded-md px-1.5 py-0.5 align-middle text-xs font-medium text-[var(--color-accent)]">
+          Live demo ↗
+        </span>
+      )}
       {project.draft && (
         <span class="ml-2 rounded-md border border-dashed border-[var(--color-accent)] px-1.5 py-0.5 align-middle text-xs font-medium text-[var(--color-accent)]">
           Draft

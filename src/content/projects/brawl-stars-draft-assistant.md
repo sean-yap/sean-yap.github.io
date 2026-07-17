@@ -6,6 +6,7 @@ impact: 'Mythic 1 in ~3 weeks, rotating 3 to 4 maxed brawlers'
 pubDate: 2026-07-01
 tags: ['Product thinking', 'React', 'Decision support']
 stack: ['React', 'Single-file app', 'Draft theory']
+liveUrl: 'https://brawl-draft-assistant.vercel.app/'
 draft: false
 order: 2
 ---

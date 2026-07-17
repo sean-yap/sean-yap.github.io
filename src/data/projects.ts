@@ -18,6 +18,8 @@ export interface Project {
   tags: string[];
   href: string;
   featured: boolean;
+  /** Optional: has a live demo. Shows a "Live demo" badge on the card. */
+  hasLiveDemo?: boolean;
   /** Draft cards show in local dev only, never on the deployed site. */
   draft?: boolean;
 }
@@ -44,6 +46,7 @@ export const PROJECTS: Project[] = [
     tags: ['React', 'Decision support'],
     href: '/projects/brawl-stars-draft-assistant',
     featured: true,
+    hasLiveDemo: true,
   },
   {
     title: 'BTO tranche calculator',

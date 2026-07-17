@@ -35,7 +35,7 @@ export const SITE = {
  */
 export const SOCIALS = {
   github: 'https://github.com/sean-yap',
-  linkedin: '', // TODO: add your LinkedIn profile URL
+  linkedin: 'https://www.linkedin.com/in/yi-sean-yap/',
   email: 'yapyisean1@gmail.com', // TODO: confirm the email you want public
   // resume lives in /public — see TODO.md
   resume: '/resume.pdf',

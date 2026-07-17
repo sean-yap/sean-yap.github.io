@@ -30,6 +30,8 @@ const projects = defineCollection({
     tags: z.array(z.string()).default([]),
     /** Tools/tech used, shown in the case-study header. */
     stack: z.array(z.string()).default([]),
+    /** Optional live demo URL, renders a "Try it live" button in the header. */
+    liveUrl: z.string().url().optional(),
     draft: z.boolean().default(false),
     /** Lower = earlier on the home page. */
     order: z.number().default(99),
