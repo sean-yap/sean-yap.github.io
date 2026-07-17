@@ -2,7 +2,7 @@
 title: 'Reaching Mythic with 4 brawlers, not 40'
 description: 'A draft assistant for Brawl Stars that treats brawler upgrades as a resource-allocation problem: invest by role, not by tier list, and climb with a fraction of the roster.'
 problem: 'Maxing a brawler in Brawl Stars is expensive and resources are scarce. With 100+ brawlers and a meta that shifts every patch, the real question is which few to invest in first.'
-impact: 'Mythic 1 in ~3 weeks, rotating 3 to 4 maxed brawlers'
+impact: 'Peak Mythic II, rotating 3 to 4 maxed brawlers'
 pubDate: 2026-07-01
 tags: ['Product thinking', 'React', 'Decision support']
 stack: ['React', 'Single-file app', 'Draft theory']
@@ -41,17 +41,14 @@ So the investment rule becomes: cover the high-value roles with one solid pick e
 
 ## What I built
 
-I distilled Bobby's two guide videos into reference docs, then built a single-file React app with three views:
+I distilled Bobby's two guide videos into reference docs, then built a single-file React app with two tabs:
 
-- **Draft Helper**: a live coach for ranked. Pick the mode, map and layout, record picks in the real 1-2-2-1 snake order, and on each of my turns it names the role to take, why, and my best owned options. It recomputes as enemy picks land (enemy took a Space Maker and has no Anti-Tank, so take a Tank).
-- **My Brawlers**: the collection tracker. Every brawler grouped by role, tap to set its level.
-- **Level Up**: the payoff view. It compares my collection against the ideal role coverage and answers the only question that spends money: who to max next.
+- **Draft**: a live coach for ranked. Pick the mode, map and layout, record picks in the real 1-2-2-1 snake order, and on each of my turns it names the role to take, why, and my best owned options. It recomputes as enemy picks land (enemy took a Space Maker and has no Anti-Tank, so take a Tank).
+- **Brawlers**: the collection tracker and the payoff in one. Every brawler is grouped by role and tapped to set its level. That feeds a per-mode readiness check and a "max next" recommendation per role, computed from role coverage rather than tier lists, so the only question that spends resources, who to max next, is always on screen.
 
-![The Draft Helper mid-draft on Brawl Ball with first pick: it recommends taking an Anti-Tank and suggests bans for the current meta](../../assets/projects/brawl-stars/draft-helper.png)
+![The Draft tab mid-draft on Brawl Ball with first pick: it recommends taking an Anti-Tank, ranks my owned options, and suggests bans for the current meta](../../assets/projects/brawl-stars/draft-helper.png)
 
-![The My Brawlers tab: every brawler grouped by draft role, tap one to cycle its saved level](../../assets/projects/brawl-stars/my-brawlers.png)
-
-![The Level Up tab: per-mode readiness warnings and a "max next" recommendation per role, computed from role coverage rather than tier lists](../../assets/projects/brawl-stars/level-up.png)
+![The Brawlers tab: every brawler grouped by draft role with its power level, plus an all-modes readiness check and a "max next" recommendation per role](../../assets/projects/brawl-stars/my-brawlers.png)
 
 ## Decisions that shaped it
 
@@ -61,9 +58,9 @@ I distilled Bobby's two guide videos into reference docs, then built a single-fi
 
 ## The result
 
-Climbing this season, I met the twelve Power 11 gate mostly with bare minimums and rotated just 3 to 4 fully maxed brawlers chosen by role coverage. About three weeks of casual play later I hit Mythic 1, a rank held by fewer than 1% of players.
+Climbing this season, I met the twelve Power 11 gate mostly with bare minimums and rotated just 3 to 4 fully maxed brawlers chosen by role coverage. Casual play across the season took me to a peak of Mythic II, a rank held by fewer than 1% of players.
 
-<div class="img-placeholder"><span>The in-game ranked screen showing Mythic 1</span></div>
+<div class="img-placeholder"><span>My ranked profile: peak Mythic II (5,475 highest)</span></div>
 
 The contrast with my 2024 roster, built by chasing tier lists, is the whole point. Same game, same wallet, different allocation logic.
 

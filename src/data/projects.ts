@@ -40,7 +40,7 @@ export const PROJECTS: Project[] = [
     title: 'Brawl Stars draft assistant',
     problem:
       'Maxing brawlers is expensive and tier lists go stale every patch. Which few deserve the scarce resources?',
-    impact: 'Mythic 1 (top ~1% of players) rotating just 3-4 maxed brawlers',
+    impact: 'Peak Mythic II (top ~1% of players) rotating just 3-4 maxed brawlers',
     approach:
       'Reframed upgrades as a resource-allocation problem: invest by durable draft roles, not volatile tier lists, with a React app coaching live drafts and ranking who to max next.',
     tags: ['React', 'Decision support'],
