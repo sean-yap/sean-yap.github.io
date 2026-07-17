@@ -60,7 +60,7 @@ I distilled Bobby's two guide videos into reference docs, then built a single-fi
 
 Climbing this season, I met the twelve Power 11 gate mostly with bare minimums and rotated just 3 to 4 fully maxed brawlers chosen by role coverage. Casual play across the season took me to a peak of Mythic II, a rank held by fewer than 1% of players.
 
-<div class="img-placeholder"><span>My ranked profile: peak Mythic II (5,475 highest)</span></div>
+![My Brawl Stars profile: all-time peak Ranked of Mythic II (5,475 highest)](../../assets/projects/brawl-stars/mythic-rank.jpg)
 
 The contrast with my 2024 roster, built by chasing tier lists, is the whole point. Same game, same wallet, different allocation logic.
 
