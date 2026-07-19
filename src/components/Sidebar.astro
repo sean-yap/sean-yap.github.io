@@ -1,6 +1,11 @@
 ---
+import { getCollection } from 'astro:content';
 import { SITE, SOCIALS, NAV_LINKS, ROLE } from '../config';
 import ThemeToggle from './ThemeToggle.astro';
+
+// Hide the Writing link until the blog has at least one published post.
+const hasPosts = (await getCollection('blog')).some((p) => !p.data.draft);
+const navLinks = NAV_LINKS.filter((l) => l.href !== '/blog' || hasPosts);
 
 const path = Astro.url.pathname;
 const isActive = (href: string) => {
@@ -51,7 +56,7 @@ const socials = [
   <!-- Desktop nav -->
   <nav class="mt-8 hidden md:flex md:flex-col md:gap-0.5">
     {
-      NAV_LINKS.map((link) => (
+      navLinks.map((link) => (
         <a
           href={link.href}
           class:list={[
@@ -94,7 +99,7 @@ const socials = [
     class="hidden flex-col gap-0.5 border-b border-zinc-200 pb-3 md:hidden dark:border-zinc-800"
   >
     {
-      NAV_LINKS.map((link) => (
+      navLinks.map((link) => (
         <a
           href={link.href}
           class:list={[

@@ -20,8 +20,8 @@ const posts = (await getCollection('blog'))
 <BaseLayout>
   <Hero />
 
-  <section id="work" class="scroll-mt-6 py-8">
-    <h2 class="section-label">Selected work</h2>
+  <section id="projects" class="scroll-mt-6 py-8">
+    <h2 class="section-label">Projects</h2>
     <div class="mt-4 grid gap-3">
       {featured.map((project) => <ProjectCard project={project} />)}
     </div>

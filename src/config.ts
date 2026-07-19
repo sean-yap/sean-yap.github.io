@@ -38,9 +38,12 @@ export const SOCIALS = {
   resume: '',
 };
 
-/** Sidebar navigation links. */
+/**
+ * Sidebar navigation links. The Writing link is dropped automatically
+ * (in Sidebar.astro) while the blog has no published posts.
+ */
 export const NAV_LINKS = [
-  { label: 'Work', href: '/#work' },
+  { label: 'Projects', href: '/#projects' },
   { label: 'Writing', href: '/blog' },
   { label: 'About', href: '/about' },
 ];
