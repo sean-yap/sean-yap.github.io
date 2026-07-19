@@ -63,11 +63,7 @@ import { SOCIALS } from '../config';
     <h2>Get in touch</h2>
     <p>
       The fastest way to reach me is
-      {SOCIALS.email ? (
-        <a href={`mailto:${SOCIALS.email}`}>email</a>
-      ) : (
-        <span>email (TODO: add address in src/config.ts)</span>
-      )}.
+      <a href={`mailto:${SOCIALS.email}`}>email</a>.
       {SOCIALS.github && (
         <>
           {' '}You can also find my code on{' '}

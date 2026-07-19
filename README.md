@@ -36,8 +36,6 @@ Then open the printed URL. Edits to any file refresh the page instantly.
 | `src/styles/global.css`    | Theme + accent color                        |
 | `public/`                  | Images, resume, favicon                     |
 
-See [`TODO.md`](./TODO.md) for the personalization checklist.
-
 ## Deploying
 
 Pushing to the `main` branch automatically builds and deploys via GitHub

@@ -1,8 +1,6 @@
 /**
  * ============================================================
  *  SITE CONFIG — edit this file to personalize the whole site.
- *  Anything marked TODO is a placeholder for you to replace.
- *  See TODO.md in the project root for the full checklist.
  * ============================================================
  */
 
@@ -30,15 +28,14 @@ export const SITE = {
 
 /**
  * Social / contact links shown in the nav, footer, and contact section.
- * Set `href` to TODO-marked values once you have them. Leave `href`
- * empty ('') to hide a link entirely.
+ * Leave a value empty ('') to hide that link entirely.
  */
 export const SOCIALS = {
   github: 'https://github.com/sean-yap',
   linkedin: 'https://www.linkedin.com/in/yi-sean-yap/',
-  email: 'yapyisean1@gmail.com', // TODO: confirm the email you want public
-  // resume lives in /public — see TODO.md
-  resume: '/resume.pdf',
+  email: 'yapyisean1@gmail.com',
+  // Not rendered anywhere yet — drop resume.pdf into /public when ready.
+  resume: '',
 };
 
 /** Sidebar navigation links. */
